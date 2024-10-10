@@ -10,7 +10,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  adapter: FirestoreAdapter(db),
+  adapter: FirestoreAdapter(db as any),
   callbacks: {
     session: async ({ session, user }) => {
       session.user.id = user.id;
